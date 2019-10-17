@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission To Mars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+        <h1><b>Mission To Mars</b></h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2 style="text-align: center;"><b>Latest Mars News</b></h2>
+        <h4><b>{{ data.news_title }}</b></h4>
+        <h5>{{ data.news_p }}</h5>
+    </div>
+    <br><hr><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 style="text-align: center;"><b>Featured Mars Image</b></h2>
+                <section>
+                    <img width="800px" height="auto" src="{{ data.featured_image_url }}" alt="Featured Mars Image">
+                </section>
+            </div>
+            <div class="col-lg-4">
+                <br>
+                <div  class="card" style="width: 24rem;">
+                    <div class="card-body">
+                        <h4><b>Current Weather on Mars</b></h4>
+                        <p class="card-text">{{ data.mars_weather }}</p>
+                    </div>
+                </div>
+                <hr> 
+                <h4 style="text-align: center;"><b>Mars Facts</b></h4>
+                <table style="width:100%">
+                    <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                    <tr>
+                        <th>Equatorial Diameter</th>
+                        <td>{{ data["Equatorial Diameter:"] }}</th>
+                    </tr>
+                    <tr>
+                        <th>Polar Diameter</th>
+                        <td>{{ data["Polar Diameter:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mass</th>
+                        <td>{{ data["Mass:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Moons</th>
+                        <td>{{ data["Moons:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Orbit Distance</th>
+                        <td>{{ data["Orbit Distance:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Orbit Period</th>
+                        <td>{{ data["Orbit Period:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Surface Temperature</th>
+                        <td>{{ data["Surface Temperature:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Record</th>
+                        <td>{{ data["First Record:"] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Recorded By</th>
+                        <td>{{ data["Recorded By:"] }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2 style="text-align: center;"><b>Mars Hemispheres</b></h2>
+        <hr>
+        <figure class="figure">
+            <img width="600" height="600" src="{{ data.image_urls[0] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[0] }}">
+            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[0] }}</figcaption>
+        </figure>
+        <figure class="figure">
+            <img width="600" height="600" src="{{ data.image_urls[1] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[1] }}">
+            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[1] }}</figcaption>
+        </figure>
+        <figure class="figure">
+            <img width="600" height="600" src="{{ data.image_urls[2] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[2] }}">
+            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[2] }}</figcaption>
+        </figure>
+        <figure class="figure">
+            <img width="600" height="600" src="{{ data.image_urls[3] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[3] }}">
+            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[3] }}</figcaption>
+        </figure>
+    </div>
+</body>
+</html>
